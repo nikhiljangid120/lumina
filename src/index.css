@@ -1,0 +1,188 @@
+/* Import elegant serif for headings */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Light Theme (Default) */
+  --bg-primary: #FDFBF7;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F5F5F5;
+  --text-primary: #1A1A1A;
+  --text-secondary: #666666;
+  --color-accent: #C5A035;
+  --border-color: rgba(0, 0, 0, 0.05);
+
+  --color-bg: var(--bg-primary);
+  /* Legacy support */
+  /* Other legacy vars if needed */
+  --color-text: var(--text-primary);
+  --color-success: #27ae60;
+
+  --bg-primary-rgb: 253, 251, 247;
+  /* For rgba usage */
+}
+
+/* Dark Theme overrides via data attribute */
+[data-theme='dark'] {
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --bg-tertiary: #2A2A2A;
+  --text-primary: #E0E0E0;
+  --text-secondary: #AAAAAA;
+  --color-accent: #D4AF37;
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  --color-bg: var(--bg-primary);
+  --color-text: var(--text-primary);
+
+  --bg-primary-rgb: 18, 18, 18;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ... (rest of styles) ... */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cormorant Garamond', serif;
+  margin: 0;
+  font-weight: 500;
+  /* Slightly lighter for elegance */
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Custom Cursor Styles */
+.cursor-dot {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(197, 160, 53, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  backdrop-filter: invert(1);
+  mix-blend-mode: difference;
+}
+
+.cursor--clicked {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(197, 160, 53, 0.8);
+}
+
+.cursor--hidden {
+  opacity: 0;
+}
+
+/* Scroll Reveal Animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Magnetic Button Effect */
+.magnetic-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.magnetic-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.magnetic-btn:hover::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Mesh Gradient Animation */
+@keyframes meshMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.mesh-gradient-text {
+  background: linear-gradient(45deg, #1A1A1A, #C5A035, #27ae60);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: meshMove 8s ease infinite;
+}
+
+[data-theme='dark'] .mesh-gradient-text {
+  background: linear-gradient(45deg, #E0E0E0, #D4AF37, #2ecc71);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: meshMove 8s ease infinite;
+}
