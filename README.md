@@ -5,7 +5,7 @@ A "Word of Mouth" inspired Product Description Page (PDP) built for high-end ski
 ## 🚀 Tech Stack
 - **Framework:** React 18
 - **Build Tool:** Vite (Fast Refresh & HMR)
-- **Styling:** Vanilla CSS + CSS Variables (Simulated CSS-in-JS via inline styles for rapid iteration)
+- **Styling:** Vanilla CSS + CSS Variables (Simulated CSS-in-JS via inline styles for rapid iteration) 
 - **Fonts:** Cormorant Garamond (Headings) + Inter (Body)
 - **Icons:** Custom SVG & Emoji-based icons
 
